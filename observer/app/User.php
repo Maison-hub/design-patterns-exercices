@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\MusicBand;
 class User 
 {
     // Hors exercice mais notable:
@@ -11,6 +11,10 @@ class User
         private bool $notified = false
     ) {}
 
+    public function update(MusicBand $musicBand): void
+    {
+        $this->notified = true;
+    }
 
     public function isNotified(): bool
     {
