@@ -1,7 +1,11 @@
 <?php
 require('../vendor/autoload.php');
+use App\MySQLQueryBuilder;
 
-
-# TODO: Creer un QueryBuilder
-# Ecrire une requête en chainant des methodes
-# Afficher la requête
+$query = (new MySQLQueryBuilder())
+    ->select('name, email')
+    ->from('users')
+    ->where('age > 18')
+    ->orderBy('name')
+    ->getQuery();
+echo $query;
